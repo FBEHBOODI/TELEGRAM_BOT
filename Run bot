@@ -1,0 +1,29 @@
+name: ًں¤– Run Sentiment Telegram Bot
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      - name: â¬‡ï¸ڈ Clone repo
+        uses: actions/checkout@v4
+
+      - name: ًںگچ Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: ًں“¦ Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: ًں¤– Run Telegram Bot
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        run: python bot/telegram_bot.py
