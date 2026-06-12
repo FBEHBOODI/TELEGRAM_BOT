@@ -25,5 +25,5 @@ jobs:
 
       - name: ًں¤– Run Telegram Bot
         env:
-          TELEGRAM_TOKEN: "8136927920:AAECKSCOXXpaAXdv8UJWPJ6lSUfOnmqxR_M"
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_ToKEN }}
         run: python bot/telegram_bot.py
